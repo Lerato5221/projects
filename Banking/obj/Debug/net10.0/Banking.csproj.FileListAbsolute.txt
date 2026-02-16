@@ -1,0 +1,15 @@
+C:\Users\lerato_signa\Desktop\GitHub\Banking\bin\Debug\net10.0\Banking.exe
+C:\Users\lerato_signa\Desktop\GitHub\Banking\bin\Debug\net10.0\Banking.deps.json
+C:\Users\lerato_signa\Desktop\GitHub\Banking\bin\Debug\net10.0\Banking.runtimeconfig.json
+C:\Users\lerato_signa\Desktop\GitHub\Banking\bin\Debug\net10.0\Banking.dll
+C:\Users\lerato_signa\Desktop\GitHub\Banking\bin\Debug\net10.0\Banking.pdb
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.AssemblyInfoInputs.cache
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.AssemblyInfo.cs
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.csproj.CoreCompileInputs.cache
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.sourcelink.json
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.dll
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\refint\Banking.dll
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.pdb
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\Banking.genruntimeconfig.cache
+C:\Users\lerato_signa\Desktop\GitHub\Banking\obj\Debug\net10.0\ref\Banking.dll
