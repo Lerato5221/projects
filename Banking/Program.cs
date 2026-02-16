@@ -1,16 +1,20 @@
 ﻿using System;
 using Banking.Functions;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using Banking.Classes;
 
 namespace Banking
 {
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
+            List<Person> Clients = new List<Person>(); // List to hold clients
             int option;
+
+
             do
-            {
+            { // Menu
                 Console.WriteLine("Welcome to MBU Banking.");
                 Console.WriteLine();
                 Console.WriteLine("Please select an Option below.");
@@ -25,11 +29,11 @@ namespace Banking
                 switch (option)
                 {
                     case 1:
-                        Bank_funtions.Login();
+                        Bank_funtions.Login(Clients);
                         break;
 
                     case 2:
-                        //
+                        Bank_funtions.OpenAccount(Clients);
                         break;
 
                     case 3:

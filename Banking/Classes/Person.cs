@@ -2,21 +2,22 @@ using System;
 
 namespace Banking.Classes
 {
-    class Person{
+    public class Person{
 
-        private String FullName;
-        private String Occupation;
-        private char Gender;
-        int AccountNumber;
-        int Pin;
-        int Age;
+        public String FullName {set; get;}
+        public String Occupation {set; get;}
+        public string Gender {set; get;}
+        public int AccountNumber {set; get;}
+        public int Pin {set; get;}
+        public int Age {set; get;}
 
         // Paramatized constructor
-        Person(String fullname, String Occupation, char Gender, int pin, int age)
+        public Person(String fullname, String occupation, string gender,int account, int pin, int age)
         {
             this.FullName = fullname;
-            this.Occupation = Occupation;
-            this.Gender = Gender;
+            this.Occupation = occupation;
+            this.Gender = gender;
+            this.AccountNumber = account;
             this.Pin = pin;
             this.Age = age;
         }
