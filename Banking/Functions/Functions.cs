@@ -14,18 +14,32 @@ namespace Banking.Functions
         {
             String fullname; 
             String Occupation; 
-            String Gender; 
+            Char Gender; 
             int pin; 
             int age;
-            
+
             // Function to Open an account
             Console.WriteLine("welcome to MBU Back");
             Console.WriteLine("Please provide the following.");
             Console.Write("Fullname: ");
+            fullname = Console.ReadLine()?? "";
+
+            Console.Write("Occupation: ");
+            Occupation = Console.ReadLine()?? "";
+
+            Console.Write("Gender M/F: ");
+            Gender = Console.ReadLine()[0];
+
+            Console.Write("Create 4 digit pin: ");
+            pin = int.Parse(console)
+
+
+
+
             
             
 
-            Person person = new Person(String fullname, String Occupation, String Gender, int pin, int age);
+            Person person = new Person(fullname, Occupation,  Gender, int pin, int age);
 
             return person;
             
