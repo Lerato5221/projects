@@ -1,6 +1,10 @@
 using System;
-using System.Reflection.Metadata.Ecma335;
+using System.ComponentModel;
+
+// Links
 using Banking.Classes;
+using Banking.Messages;
+using Banking.Helper;
 
 namespace Banking.Functions
 {
@@ -8,64 +12,59 @@ namespace Banking.Functions
     {
 
         // Open account
-        
-
-        public static  Person OpenAccount()
+        public static void OpenAccount(List<Person> Clients)
         {
-            String fullname; 
-            String Occupation; 
-            Char Gender; 
-            int pin; 
-            int age;
 
             // Function to Open an account
             Console.WriteLine("welcome to MBU Back");
+            Console.WriteLine();
             Console.WriteLine("Please provide the following.");
             Console.Write("Fullname: ");
-            fullname = Console.ReadLine()?? "";
+            String fullname = Console.ReadLine()?? "";
 
             Console.Write("Occupation: ");
-            Occupation = Console.ReadLine()?? "";
+            String occupation = Console.ReadLine()?? "";
 
-            Console.Write("Gender M/F: ");
-            Gender = Console.ReadLine()[0];
+            Console.Write("Gender Male/Female: ");
+            string gender = Console.ReadLine()?? "";
 
             Console.Write("Create 4 digit pin: ");
-            pin = int.Parse(console)
+            int pin = int.Parse(Console.ReadLine()?? "0");
+
+            Console.Write("Age: ");
+            int age = int.Parse(Console.ReadLine()?? "0");
+
+            // Generating account
+            string G_account = Helper_Function.AccountNumber_Generator(); // Generate an account in a String format using Helper function.
+
+            int account = Convert.ToInt32(G_account); // Converts the generated string account into an int
 
 
 
+            Person person =  new Classes.Person(fullname, occupation,  gender, account, pin, age);
 
-            
-            
+            Clients.Add(person);
 
-            Person person = new Person(fullname, Occupation,  Gender, int pin, int age);
-
-            return person;
-            
+            Bank_Messages.AccountConfirmation(person); // Calls the confirmation message.
         }
 
         // Login function
-        public static void Login()
+        public static void Login(List<Person> Clients)
         {   
-            long AccountNumber;
-            int Pin;
+            Person person;
+
 
             Console.WriteLine("Welcome.");
             Console.WriteLine("Please insert the following.");
             Console.WriteLine();
 
             Console.WriteLine("Account number: ");
-            // Try-catch to ensure the number is double
-            while(!long.TryParse(Console.ReadLine(), out AccountNumber))
-            {
-                Console.WriteLine("Invalid input, Please enter valid number");
-            }
-            Console.WriteLine("Pin: ");
-            while(!int.TryParse(Console.ReadLine(), out Pin))
-            {
-                Console.WriteLine("Invalid input, Please enter valid number");
-            }
+            int account_number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Pin Number: ");
+            int Pin_number = int.Parse(Console.ReadLine());
+
+            if (int account_number in )
         
         }
     }

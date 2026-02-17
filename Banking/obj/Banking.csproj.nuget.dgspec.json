@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj": {}
+    "D:\\Git Projects\\projects\\Banking\\Banking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj": {
+    "D:\\Git Projects\\projects\\Banking\\Banking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj",
+        "projectUniqueName": "D:\\Git Projects\\projects\\Banking\\Banking.csproj",
         "projectName": "Banking",
-        "projectPath": "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj",
-        "packagesPath": "C:\\Users\\lerato_signa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\obj\\",
+        "projectPath": "D:\\Git Projects\\projects\\Banking\\Banking.csproj",
+        "packagesPath": "C:\\Users\\Lerato\\.nuget\\packages\\",
+        "outputPath": "D:\\Git Projects\\projects\\Banking\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lerato_signa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lerato\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
