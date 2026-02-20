@@ -29,7 +29,13 @@ namespace Banking.Functions
             string gender = Console.ReadLine()?? "";
 
             Console.Write("Create 4 digit pin: ");
-            int pin = int.Parse(Console.ReadLine()?? "0");
+            int pin;
+
+            // Pin Logic
+            while(!int.TryParse(Console.ReadLine(), out pin) || pin < 1000 || pin > 9999)
+            {
+                Console.Write("Invalid PIN. Enter a 4 digit pin");
+            }
 
             Console.Write("Age: ");
             int age = int.Parse(Console.ReadLine()?? "0");
@@ -64,7 +70,7 @@ namespace Banking.Functions
             Console.WriteLine("Pin Number: ");
             int Pin_number = int.Parse(Console.ReadLine());
 
-            if (int account_number in )
+            //if (int account_number in )
         
         }
     }
