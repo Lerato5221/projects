@@ -1,0 +1,54 @@
+public static void Login(List<Person> Clients)
+{
+    Console.WriteLine("Welcome.");
+    Console.Write("Account number: ");
+
+    int accountNumber = int.Parse(Console.ReadLine() ?? "0");
+
+    Person selectedPerson = null;
+
+    // Find matching account
+    foreach (Person p in Clients)
+    {
+        if (p.AccountNumber == accountNumber)
+        {
+            selectedPerson = p;
+            break;
+        }
+    }
+
+    // If not found
+    if (selectedPerson == null)
+    {
+        Console.WriteLine("Account not found.");
+        return;
+    }
+
+    Console.Write("Enter PIN: ");
+    int pin = int.Parse(Console.ReadLine() ?? "0");
+
+    if (pin != selectedPerson.Pin)
+    {
+        Console.WriteLine("Wrong PIN.");
+        return;
+    }
+
+    Console.WriteLine("Login successful!");
+    Console.WriteLine("1 - Deposit");
+    Console.WriteLine("2 - View Balance");
+
+    int choice = int.Parse(Console.ReadLine() ?? "0");
+
+    if (choice == 1)
+    {
+        Computation_Functions.Deposit(selectedPerson);
+    }
+    else if (choice == 2)
+    {
+        Console.WriteLine("Balance: " + selectedPerson.Amount);
+    }
+    else
+    {
+        Console.WriteLine("Invalid option.");
+    }
+}

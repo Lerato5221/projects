@@ -5,6 +5,8 @@ using System.ComponentModel;
 using Banking.Classes;
 using Banking.Messages;
 using Banking.Helper;
+using Banking.Computations;
+using System.Reflection.Metadata;
 
 namespace Banking.Functions
 {
@@ -45,9 +47,10 @@ namespace Banking.Functions
 
             int account = Convert.ToInt32(G_account); // Converts the generated string account into an int
 
+            // ) deposits to the amount
+            double amount = 0;
 
-
-            Person person =  new Classes.Person(fullname, occupation,  gender, account, pin, age);
+            Person person =  new Classes.Person(fullname, occupation,  gender, account, amount, pin, age);
 
             Clients.Add(person);
 
@@ -57,20 +60,72 @@ namespace Banking.Functions
         // Login function
         public static void Login(List<Person> Clients)
         {   
-            Person person;
-
-
             Console.WriteLine("Welcome.");
             Console.WriteLine("Please insert the following.");
             Console.WriteLine();
 
             Console.WriteLine("Account number: ");
-            int account_number = int.Parse(Console.ReadLine());
+            int account_number = int.Parse(Console.ReadLine()?? "0");
+            bool account_found = false;
+            int Pin_number;
 
-            Console.WriteLine("Pin Number: ");
-            int Pin_number = int.Parse(Console.ReadLine());
+            foreach( Person p in Clients)
+            {
+                if (account_number == p.AccountNumber)
+                {
+                    account_found = true;
+                }
+            }
 
-            //if (int account_number in )
+            // if account found
+            if (account_found)
+            {
+                Console.Write("Enter pin: ");
+
+                while (!int.TryParse(Console.ReadLine(), out Pin_number) 
+                    || Pin_number < 1000 
+                    || Pin_number > 9999)
+                {
+                    Console.Write("Invalid PIN. Enter a 4 digit number: ");
+                }
+
+                foreach( Person p in Clients)
+                {
+                    int choice;
+                    if (Pin_number == p.Pin)
+                    {
+                        
+                        Console.WriteLine($"Welcome {p.FullName}.");
+                        Console.WriteLine();
+                        Console.WriteLine("Please choose an option.");
+                        Console.WriteLine("1 - Deposit.");
+                        Console.WriteLine("2 - Withdraw.");
+                        Console.WriteLine("3 - View Balamce.");
+                        Console.WriteLine();
+
+                        choice = int.Parse(Console.ReadLine()?? "0");
+
+                        switch (choice)
+                        {
+                            case 1:
+                                Computation_Functions.Deposit(Clients);
+                                break;
+                        }
+                    }
+                }
+            } else
+            {   
+                Console.WriteLine("Account number not found.");
+                Console.WriteLine("Would you like to Open an account? Y/N.");
+
+                string Open_Account = Console.ReadLine()?? "";
+
+                if (Open_Account == "Y" || Open_Account == "y")
+                {
+                    OpenAccount(Clients);
+                }
+                
+            }
         
         }
     }
