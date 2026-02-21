@@ -25,7 +25,7 @@ namespace Banking
                 Console.WriteLine("2 - Open an account.");
                 Console.WriteLine("3 - Exit.");
 
-                Console.WriteLine("Option: ");
+                Console.Write("Option: ");
                 option = int.Parse(Console.ReadLine()?? "0");
 
 

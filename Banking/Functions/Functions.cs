@@ -114,6 +114,7 @@ namespace Banking.Functions
             Console.WriteLine("1 - Deposit.");
             Console.WriteLine("2 - Withdraw.");
             Console.WriteLine("3 - View balance.");
+            Console.WriteLine("4 - Logout.");
 
             Console.Write("Choice: ");
             int choice = int.Parse(Console.ReadLine()?? "0");
@@ -123,51 +124,46 @@ namespace Banking.Functions
             {
                 case 1:
                     Computation_Functions.Deposit(selectedPerson); // This will call deposit function for a selected person.
+                    break;;
+
+                case 2:
+                    Computation_Functions.Withdraw(selectedPerson);
+                    break;;
+
+                case 3:
+                    Computation_Functions.ViewBalance(selectedPerson);
+                    break;;
+                case 4:
+                    Console.WriteLine("Thank you for your business");
                     break;
             }
         }
 
 
         
-        public static void WriteToFile(List<Person> newClients)
-        {
-            var options = new JsonSerializerOptions
+        public static void WriteToFile(List<Person> clients)
             {
-                WriteIndented = true
-            };
-
-            // Ensure the Data folder exists
-            var folderPath = Path.Combine(Environment.CurrentDirectory, "Data");
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
-            var filePath = Path.Combine(folderPath, "people.json");
-
-            // Read existing data if the file exists
-            List<Person> people = new List<Person>();
-            if (File.Exists(filePath))
-            {
-                var existingJson = File.ReadAllText(filePath);
-                if (!string.IsNullOrWhiteSpace(existingJson))
+                var options = new JsonSerializerOptions
                 {
-                    people = JsonSerializer.Deserialize<List<Person>>(existingJson, options) ?? new List<Person>();
+                    WriteIndented = true
+                };
+
+                var folderPath = Path.Combine(Environment.CurrentDirectory, "Data");
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
                 }
+
+                var filePath = Path.Combine(folderPath, "Clients.json");
+
+                var json = JsonSerializer.Serialize(clients, options);
+                File.WriteAllText(filePath, json);
             }
-
-            // Add new people
-            people.AddRange(newClients);
-
-            // Write combined list back to the file
-            var json = JsonSerializer.Serialize(people, options);
-            File.WriteAllText(filePath, json);
-        }
 
         public static void LoaderFiler(List<Person> Clients)
         {
             var folderPath = Path.Combine(Environment.CurrentDirectory, "Data");
-            var filePath = Path.Combine(folderPath, "people.json");
+            var filePath = Path.Combine(folderPath, "Clients.json");
 
             if (!File.Exists(filePath))
                 return; // No file, nothing to load
@@ -177,8 +173,8 @@ namespace Banking.Functions
                 return;
 
             // Deserialize into a temporary list and add its contents to the passed-in list
-            var loadedPeople = JsonSerializer.Deserialize<List<Person>>(existingJson) ?? new List<Person>();
-            Clients.AddRange(loadedPeople);
+            var loadedClients = JsonSerializer.Deserialize<List<Person>>(existingJson) ?? new List<Person>();
+            Clients.AddRange(loadedClients);
         }
 
     }

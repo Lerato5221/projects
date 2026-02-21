@@ -1,0 +1,20 @@
+[
+  {
+    "FullName": "Lerato Motholo",
+    "Occupation": "IT Security",
+    "Gender": "Male",
+    "AccountNumber": 47952086,
+    "Amount": 275,
+    "Pin": 6221,
+    "Age": 30
+  },
+  {
+    "FullName": "Thandeka Magagula",
+    "Occupation": "Sale reps",
+    "Gender": "Female",
+    "AccountNumber": 1834672,
+    "Amount": 6000,
+    "Pin": 5221,
+    "Age": 30
+  }
+]
