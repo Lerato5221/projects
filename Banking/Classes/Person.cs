@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace Banking.Classes
 {
@@ -12,16 +13,20 @@ namespace Banking.Classes
         public int Pin {set; get;}
         public int Age {set; get;}
 
+        //[JsonConstructor]
+        public Person() {}
+        
+        
         // Paramatized constructor
         public Person(String fullname, String occupation, string gender,int account,double amount, int pin, int age)
         {
-            this.FullName = fullname;
-            this.Occupation = occupation;
-            this.Gender = gender;
-            this.AccountNumber = account;
-            this.Amount = amount;
-            this.Pin = pin;
-            this.Age = age;
+            FullName = fullname;
+            Occupation = occupation;
+            Gender = gender;
+            AccountNumber = account;
+            Amount = amount;
+            Pin = pin;
+            Age = age;
         }
     }
 

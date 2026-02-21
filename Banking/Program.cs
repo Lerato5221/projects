@@ -10,6 +10,9 @@ namespace Banking
         static void Main(string[] args)
         {   
             List<Person> Clients = new List<Person>(); // List to hold clients
+
+            // Load data in start-up
+            Bank_funtions.LoaderFiler(Clients);
             int option;
 
 
@@ -37,6 +40,7 @@ namespace Banking
                         break;
 
                     case 3:
+                    Bank_funtions.WriteToFile(Clients);
                         Console.WriteLine("Thank your visit.");
                         break;
 

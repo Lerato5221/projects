@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json;
 using System.ComponentModel;
 
 // Links
@@ -66,68 +67,120 @@ namespace Banking.Functions
 
             Console.WriteLine("Account number: ");
             int account_number = int.Parse(Console.ReadLine()?? "0");
-            bool account_found = false;
+            //bool account_found = false;
             int Pin_number;
 
-            foreach( Person p in Clients)
+            Person selectedPerson = null; // No person is selected
+
+            foreach( Person p in Clients) // Checks the account and if found assigns it to selectedPerson.
             {
                 if (account_number == p.AccountNumber)
                 {
-                    account_found = true;
+                    selectedPerson = p;
+                    break;
                 }
             }
 
-            // if account found
-            if (account_found)
+            // if not found
+            if (selectedPerson == null)
             {
-                Console.Write("Enter pin: ");
+                Console.WriteLine("Account not found.");
 
-                while (!int.TryParse(Console.ReadLine(), out Pin_number) 
-                    || Pin_number < 1000 
-                    || Pin_number > 9999)
-                {
-                    Console.Write("Invalid PIN. Enter a 4 digit number: ");
-                }
+                //option to open account
+                Console.Write("Would you like to open an account Y/N: ");
+                string open_Acount = Console.ReadLine()?? " ";
 
-                foreach( Person p in Clients)
-                {
-                    int choice;
-                    if (Pin_number == p.Pin)
-                    {
-                        
-                        Console.WriteLine($"Welcome {p.FullName}.");
-                        Console.WriteLine();
-                        Console.WriteLine("Please choose an option.");
-                        Console.WriteLine("1 - Deposit.");
-                        Console.WriteLine("2 - Withdraw.");
-                        Console.WriteLine("3 - View Balamce.");
-                        Console.WriteLine();
-
-                        choice = int.Parse(Console.ReadLine()?? "0");
-
-                        switch (choice)
-                        {
-                            case 1:
-                                Computation_Functions.Deposit(Clients);
-                                break;
-                        }
-                    }
-                }
-            } else
-            {   
-                Console.WriteLine("Account number not found.");
-                Console.WriteLine("Would you like to Open an account? Y/N.");
-
-                string Open_Account = Console.ReadLine()?? "";
-
-                if (Open_Account == "Y" || Open_Account == "y")
+                if (open_Acount == "Y" || open_Acount == "y")
                 {
                     OpenAccount(Clients);
                 }
-                
+
+                return;
             }
-        
+
+            Console.WriteLine("Enter PIN: ");
+            Pin_number = int.Parse(Console.ReadLine()?? "0");
+            
+            // 
+            if(Pin_number != selectedPerson.Pin)
+            {
+                Console.WriteLine("Wrong PIN");
+                return;
+            }
+
+            Console.WriteLine("Login successful!");
+
+            //Options after login
+            Console.WriteLine("1 - Deposit.");
+            Console.WriteLine("2 - Withdraw.");
+            Console.WriteLine("3 - View balance.");
+
+            Console.Write("Choice: ");
+            int choice = int.Parse(Console.ReadLine()?? "0");
+
+
+            switch (choice)
+            {
+                case 1:
+                    Computation_Functions.Deposit(selectedPerson); // This will call deposit function for a selected person.
+                    break;
+            }
         }
+
+
+        
+        public static void WriteToFile(List<Person> newClients)
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            // Ensure the Data folder exists
+            var folderPath = Path.Combine(Environment.CurrentDirectory, "Data");
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            var filePath = Path.Combine(folderPath, "people.json");
+
+            // Read existing data if the file exists
+            List<Person> people = new List<Person>();
+            if (File.Exists(filePath))
+            {
+                var existingJson = File.ReadAllText(filePath);
+                if (!string.IsNullOrWhiteSpace(existingJson))
+                {
+                    people = JsonSerializer.Deserialize<List<Person>>(existingJson, options) ?? new List<Person>();
+                }
+            }
+
+            // Add new people
+            people.AddRange(newClients);
+
+            // Write combined list back to the file
+            var json = JsonSerializer.Serialize(people, options);
+            File.WriteAllText(filePath, json);
+        }
+
+        public static void LoaderFiler(List<Person> Clients)
+        {
+            var folderPath = Path.Combine(Environment.CurrentDirectory, "Data");
+            var filePath = Path.Combine(folderPath, "people.json");
+
+            if (!File.Exists(filePath))
+                return; // No file, nothing to load
+
+            var existingJson = File.ReadAllText(filePath);
+            if (string.IsNullOrWhiteSpace(existingJson))
+                return;
+
+            // Deserialize into a temporary list and add its contents to the passed-in list
+            var loadedPeople = JsonSerializer.Deserialize<List<Person>>(existingJson) ?? new List<Person>();
+            Clients.AddRange(loadedPeople);
+        }
+
     }
 }
 

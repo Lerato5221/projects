@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj": {}
+    "C:\\users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj": {
+    "C:\\users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj",
+        "projectUniqueName": "C:\\users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj",
         "projectName": "Banking",
-        "projectPath": "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj",
+        "projectPath": "C:\\users\\lerato_signa\\Desktop\\GitHub\\Banking\\Banking.csproj",
         "packagesPath": "C:\\Users\\lerato_signa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lerato_signa\\Desktop\\GitHub\\Banking\\obj\\",
+        "outputPath": "C:\\users\\lerato_signa\\Desktop\\GitHub\\Banking\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
