@@ -98,6 +98,8 @@ namespace Banking.Functions
                 return;
             }
 
+            
+
             Console.WriteLine("Enter PIN: ");
             Pin_number = int.Parse(Console.ReadLine()?? "0");
             
@@ -108,6 +110,7 @@ namespace Banking.Functions
                 return;
             }
 
+            
             Console.WriteLine("Login successful!");
 
             //Options after login

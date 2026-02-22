@@ -13,8 +13,17 @@
     "Occupation": "Sale reps",
     "Gender": "Female",
     "AccountNumber": 1834672,
-    "Amount": 6000,
+    "Amount": 13000,
     "Pin": 5221,
+    "Age": 30
+  },
+  {
+    "FullName": "Mbuyelo Baloyi",
+    "Occupation": "IT Admin",
+    "Gender": "Female",
+    "AccountNumber": 6974213,
+    "Amount": 500,
+    "Pin": 4221,
     "Age": 30
   }
 ]
