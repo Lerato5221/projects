@@ -17,7 +17,7 @@ namespace Banking.Computations
             double DepositAmount;
 
             Console.WriteLine("How Much would you like to deposit.");
-            Console.WriteLine("Enter amount: .");
+            Console.Write("Enter amount R: ");
             DepositAmount = double.Parse(Console.ReadLine()?? "0");
 
             if (DepositAmount == 0)
@@ -29,15 +29,17 @@ namespace Banking.Computations
                 selectedPerson.Amount += DepositAmount;
             }
 
-            Console.WriteLine($"You have succesfully deposit R {DepositAmount}.");
-            Console.WriteLine($"New Balance R {selectedPerson.Amount}.");
+            Console.WriteLine($"You have succesfully deposit R {DepositAmount:f2}.");
+            Console.WriteLine($"New Balance R {selectedPerson.Amount:f2}.");
+            Console.WriteLine("_______________________________________________");
+            Console.WriteLine();
         }
 
         public static void Withdraw(Person selectedPerson)
         {
         
             Console.WriteLine("How much would you like to withdraw?");
-            Console.Write("Enter amount: ");
+            Console.Write("Enter amount R: ");
 
             if (!double.TryParse(Console.ReadLine(), out double withdrawAmount))
             {
@@ -61,6 +63,8 @@ namespace Banking.Computations
 
             Console.WriteLine($"You have successfully withdrawn R {withdrawAmount:f2}");
             Console.WriteLine($"Remaining Balance: R {selectedPerson.Amount:f2}");
+            Console.WriteLine("_______________________________________________");
+            Console.WriteLine();
             
         }
 

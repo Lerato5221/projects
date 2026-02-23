@@ -34,15 +34,18 @@ namespace Banking
                 {
                     case 1:
                         Bank_funtions.Login(Clients);
+                        Console.WriteLine();
                         break;
 
                     case 2:
                         Bank_funtions.OpenAccount(Clients);
+                        Console.WriteLine();
                         break;
 
                     case 3:
                     Bank_funtions.WriteToFile(Clients);
                         Console.WriteLine("Thank your visit.");
+                        Console.WriteLine();
                         break;
 
                 }

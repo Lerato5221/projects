@@ -48,7 +48,7 @@ namespace Banking.Functions
 
             int account = Convert.ToInt32(G_account); // Converts the generated string account into an int
 
-            // ) deposits to the amount
+            // deposits to the amount
             double amount = 0;
 
             Person person =  new Classes.Person(fullname, occupation,  gender, account, amount, pin, age);
@@ -59,13 +59,13 @@ namespace Banking.Functions
         }
 
         // Login function
-        public static void Login(List<Person> Clients)
+    public static void Login(List<Person> Clients)
         {   
             Console.WriteLine("Welcome.");
             Console.WriteLine("Please insert the following.");
             Console.WriteLine();
 
-            Console.WriteLine("Account number: ");
+            Console.Write("Account number: ");
             int account_number = int.Parse(Console.ReadLine()?? "0");
             //bool account_found = false;
             int Pin_number;
@@ -100,46 +100,53 @@ namespace Banking.Functions
 
             
 
-            Console.WriteLine("Enter PIN: ");
+            Console.Write("Enter PIN: ");
             Pin_number = int.Parse(Console.ReadLine()?? "0");
             
             // 
             if(Pin_number != selectedPerson.Pin)
-            {
+                    {
                 Console.WriteLine("Wrong PIN");
                 return;
             }
 
-            
             Console.WriteLine("Login successful!");
 
-            //Options after login
-            Console.WriteLine("1 - Deposit.");
-            Console.WriteLine("2 - Withdraw.");
-            Console.WriteLine("3 - View balance.");
-            Console.WriteLine("4 - Logout.");
+            
 
-            Console.Write("Choice: ");
-            int choice = int.Parse(Console.ReadLine()?? "0");
-
-
-            switch (choice)
+            while (true)
             {
-                case 1:
-                    Computation_Functions.Deposit(selectedPerson); // This will call deposit function for a selected person.
-                    break;;
+                //Options after login
+                Console.WriteLine("1 - Deposit.");
+                Console.WriteLine("2 - Withdraw.");
+                Console.WriteLine("3 - View balance.");
+                Console.WriteLine("4 - Logout."   );
 
-                case 2:
-                    Computation_Functions.Withdraw(selectedPerson);
-                    break;;
+                Console.Write("Choice: ");
+                int choice = int.Parse(Console.ReadLine()?? "0");
 
-                case 3:
-                    Computation_Functions.ViewBalance(selectedPerson);
-                    break;;
-                case 4:
-                    Console.WriteLine("Thank you for your business");
-                    break;
+                switch (choice)
+                {
+                    case 1:
+                        Computation_Functions.Deposit(selectedPerson);
+                        Console.WriteLine();
+                        break;
+
+                    case 2:
+                        Computation_Functions.Withdraw(selectedPerson);
+                        Console.WriteLine();
+                        break;
+
+                    case 3:
+                        Computation_Functions.ViewBalance(selectedPerson);
+                        Console.WriteLine();
+                        break;
+                    case 4:
+                        Console.WriteLine("Thank you for your business");
+                        return;
+                }
             }
+            
         }
 
 
@@ -178,8 +185,8 @@ namespace Banking.Functions
             // Deserialize into a temporary list and add its contents to the passed-in list
             var loadedClients = JsonSerializer.Deserialize<List<Person>>(existingJson) ?? new List<Person>();
             Clients.AddRange(loadedClients);
-        }
-
-    }
+                }
+                
+            }
 }
 
